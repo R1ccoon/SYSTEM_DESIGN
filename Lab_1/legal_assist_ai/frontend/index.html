@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LegalAssist AI - Юридический помощник</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚖️ LegalAssist AI</h1>
+            <p>Ваш автоматизированный юридический помощник на базе локальной нейросети</p>
+        </div>
+        
+        <div class="controls">
+            <div class="mode-selector">
+                <label>Режим работы:</label>
+                <select id="mode-select">
+                    <option value="consult">📝 Юридическая консультация</option>
+                    <option value="doc">📄 Работа с документами</option>
+                    <option value="search">🔍 Поиск информации</option>
+                </select>
+            </div>
+            
+            <div class="file-upload">
+                <label>Анализ документа:</label>
+                <input type="file" id="file-input" accept=".txt,.doc,.docx,.pdf">
+            </div>
+            
+            <button class="upload-btn" id="upload-button">📎 Анализировать</button>
+        </div>
+        
+        <div class="chat-container" id="chat-container">
+            <!-- Messages will appear here -->
+        </div>
+        
+        <div class="input-area">
+            <textarea 
+                id="message-input" 
+                placeholder="Опишите вашу юридическую ситуацию..."
+                rows="3"
+            ></textarea>
+            <button class="send-btn" id="send-button">📤 Отправить</button>
+        </div>
+    </div>
+    
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

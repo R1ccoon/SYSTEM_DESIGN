@@ -1,0 +1,252 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+.header {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.1em;
+  opacity: 0.9;
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.mode-selector {
+  flex: 1;
+}
+
+.mode-selector label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.file-upload {
+  flex: 1;
+}
+
+.file-upload label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+}
+
+.upload-btn {
+  flex: 0 0 auto;
+  align-self: flex-end;
+  padding: 10px 20px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.upload-btn:hover {
+  background: #45a049;
+}
+
+.chat-container {
+  height: 500px;
+  overflow-y: auto;
+  padding: 20px;
+  background: #fafafa;
+}
+
+.message {
+  margin-bottom: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.user-message {
+  text-align: right;
+}
+
+.user-message .message-content {
+  background: #667eea;
+  color: white;
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 20px;
+  max-width: 70%;
+  text-align: left;
+}
+
+.assistant-message .message-content {
+  background: white;
+  color: #333;
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 20px;
+  max-width: 70%;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.message-time {
+  font-size: 0.75em;
+  color: #999;
+  margin-top: 5px;
+}
+
+.input-area {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  background: white;
+  border-top: 1px solid #e0e0e0;
+}
+
+textarea {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1em;
+  resize: vertical;
+  min-height: 80px;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.send-btn {
+  padding: 0 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: transform 0.2s;
+}
+
+.send-btn:hover {
+  transform: translateY(-2px);
+}
+
+.typing-indicator {
+  display: inline-block;
+  padding: 12px 18px;
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.typing-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #999;
+  margin: 0 2px;
+  animation: typing 1.4s infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30% { transform: translateY(-10px); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.error-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #f44336;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: slideIn 0.3s ease;
+  z-index: 1000;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+  }
+  
+  .upload-btn {
+    align-self: stretch;
+  }
+  
+  .user-message .message-content,
+  .assistant-message .message-content {
+    max-width: 90%;
+  }
+}
